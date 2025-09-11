@@ -150,31 +150,28 @@ export default function RootLayout({
             `,
           }}
         />
-        <Script
-          id="lead-event"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              document.addEventListener('DOMContentLoaded', function() {
-                const button = document.getElementById("cta-button");
-                if (button) {
-                  console.log("Botón CTA encontrado");
-                  button.addEventListener("click", function () {
-                    if (typeof window.fbq === 'function') {
-                      window.fbq("track", "StartTrial", {
-                        content_name: "Botón CTA",
-                        value: 0,
-                        currency: "USD",
-                      });
-                    }
-                  });
-                } else {
-                  console.log("No se encontró el botón CTA");
-                }
-              });
-            `,
-          }}
-        />
+     <Script
+  id="lead-event"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{
+    __html: `
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById("lead-form");
+        if (form) {
+          console.log("Formulario encontrado");
+          form.addEventListener("submit", function () {
+            if (typeof window.fbq === 'function') {
+              window.fbq("track", "CompleteRegistration");
+            }
+          });
+        } else {
+          console.log("No se encontró el formulario de lead");
+        }
+      });
+    `,
+  }}
+/>
+
         {children}
       </body>
     </html>
