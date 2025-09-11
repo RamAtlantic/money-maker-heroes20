@@ -90,11 +90,9 @@ export function LeadFormModal({
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    window.fbq("track", "StartTrial", {
-      content_name: "Botón CTA",
-      value: 0,
-      currency: "USD",
-    });
+   if (typeof window.fbq === 'function') {
+  window.fbq("track", "CompleteRegistration");
+}
     const v = validate(data)
     setErrors(v)
     if (Object.values(v).some(Boolean)) return
