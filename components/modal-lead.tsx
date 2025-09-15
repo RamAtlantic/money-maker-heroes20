@@ -91,7 +91,7 @@ export function LeadFormModal({
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
    if (typeof window.fbq === 'function') {
-  window.fbq("track", "CompleteRegistration");
+  window.fbq("track", "Contact");
 }
     const v = validate(data)
     setErrors(v)
@@ -275,6 +275,7 @@ export function LeadFormModal({
 
                 <Button
                   type="submit"
+                  id="pixel-contact"
                   disabled={submitting}
                   className={cn(
                     'mt-',
