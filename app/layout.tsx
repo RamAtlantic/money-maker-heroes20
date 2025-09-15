@@ -150,23 +150,21 @@ export default function RootLayout({
             `,
           }}
         />
-     <Script
+<Script
   id="lead-event"
   strategy="afterInteractive"
   dangerouslySetInnerHTML={{
     __html: `
-      document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById("lead-form");
-        if (form) {
-          console.log("Formulario encontrado");
-          form.addEventListener("submit", function () {
+      document.addEventListener('DOMContentLoaded', function () {
+        var forms = document.querySelectorAll('.pixel-contact');
+
+        forms.forEach(function (form) {
+          form.addEventListener('submit', function () {
             if (typeof window.fbq === 'function') {
-              window.fbq("track", "CompleteRegistration");
+              window.fbq('track', 'Contact');
             }
           });
-        } else {
-          console.log("No se encontró el formulario de lead");
-        }
+        });
       });
     `,
   }}
