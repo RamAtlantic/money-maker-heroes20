@@ -190,7 +190,7 @@ export default function Page() {
     <main className="relative bg-black min-h-screen">
       {/* Video 1 */}
       <GifBackground
-        src={`https://pub-581d9beed9654163970c769982a0193b.r2.dev/heroes/gif.gif`}
+        src={`/gif.webp`}
         alt="Video 1: Relámpagos y templo"
       />
 
@@ -239,7 +239,7 @@ export default function Page() {
 xw
       {/* Video 2 */}
       <GifBackground
-        src={`https://pub-581d9beed9654163970c769982a0193b.r2.dev/heroes/gif2.gif`}
+        src={`/gif2.webp`}
         alt="Video 2: Relámpagos y templo"
       />
 
